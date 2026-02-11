@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <!--
+    Critical inline styles: set background color immediately to prevent
+    a white flash (FOUC) when the user's system is in dark mode.
+  -->
+  <style>
+    html {
+      background-color: #fafaf9;
+    }
+    @media (prefers-color-scheme: dark) {
+      html {
+        background-color: #111110;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container loading" id="container">
+    <blockquote id="quote"></blockquote>
+    <cite id="author"></cite>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

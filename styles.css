@@ -1,0 +1,99 @@
+/* ============================================================
+   Inspirate — Styles
+   A Digital Zen Garden for your New Tab.
+   ============================================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- System Font Stack (zero latency) --- */
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  background-color: #fafaf9;
+  color: #1c1917;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Layout: Full-viewport centered --- */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Reveal after JS injects content */
+.container.ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep invisible during load */
+.container.loading {
+  opacity: 0;
+}
+
+/* --- Quote Typography --- */
+#quote {
+  font-size: clamp(1.4rem, 3vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.55;
+  text-align: center;
+  letter-spacing: -0.01em;
+  quotes: "\201C" "\201D";
+}
+
+#quote::before {
+  content: open-quote;
+}
+
+#quote::after {
+  content: close-quote;
+}
+
+/* --- Author Typography --- */
+#author {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  font-weight: 400;
+  font-style: normal;
+  color: #78716c;
+  letter-spacing: 0.02em;
+}
+
+/* --- Dark Mode (No-Flash via inline HTML + this media query) --- */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111110;
+    color: #e7e5e4;
+  }
+
+  #author {
+    color: #a8a29e;
+  }
+}
